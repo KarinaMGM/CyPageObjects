@@ -1,0 +1,14 @@
+{
+  "name": "tarefa-22",
+  "version": "1.0.0",
+  "description": "Tarefa módulo 22",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress run"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cypress": "^13.7.2"
+  }
+}
