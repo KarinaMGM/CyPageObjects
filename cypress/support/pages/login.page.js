@@ -8,6 +8,7 @@ export const loginPage = {
     get password () {return cy.get(':nth-child(8) > .css-175oi2r > [data-testid="password"]')},
     get confirmPassword() {return cy.get('[data-testid="repassword"]')},
     get btnCreate () {return cy.get('[data-testid="create"]')},
+    get profile () {return cy.get('[href="/Tab/Account"] > .r-g6644c')},
 
     login(firstName, lastName, phoneNumber, email, password, confirmPassword){
         this.firstName.type(firstName)
@@ -17,5 +18,6 @@ export const loginPage = {
         this.password.type(password)
         this.confirmPassword.type(confirmPassword)
         this.btnCreate.click()
+        this.profile.click()
     }
 }

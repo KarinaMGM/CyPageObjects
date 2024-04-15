@@ -14,9 +14,13 @@ describe('Teste de autenticação', () => {
   });
 
   it('Deve criar uma conta com sucesso', () => {
+    let email2 = `karina${Math.floor(Math.random() * 1000000000)}@ebac.com.br`
     homePage.openMenu()
-    loginPage.login(firstName, lastName, phoneNumber, email, password, confirmPassword)
-    homePage.openMenu()
-    profilePage.customerName().should('contain', 'Karina Macedo')
+    loginPage.login(firstName, lastName, phoneNumber, email2, password, confirmPassword)
+    profilePage.customerName().should('contain', 'Macedo Karina')
   })
+
+  it('Deve fazer logout com sucesso', () => {
+    logoutPage.logout
+  });
 })
