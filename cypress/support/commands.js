@@ -24,4 +24,14 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
+import { homePage } from "./pages/home.page"
+import { loginPage } from "./pages/login.page"
+import { profilePage } from "./pages/profile.page"
 
+Cypress.Commands.add('login', (firstName, lastName, phoneNumber, email, password, confirmPassword) => { 
+    cy.setCookie('ebacStoreVersion', 'v2', { domain: 'lojaebac.ebaconline.art.br' })
+    cy.visit('/')
+    homePage.openMenu()
+    loginPage.login(firstName, lastName, phoneNumber, email, password, confirmPassword)
+    profilePage.customerName().should('contain', 'Macedo Karina')
+})
