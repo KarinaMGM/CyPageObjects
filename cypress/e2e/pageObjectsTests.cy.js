@@ -1,10 +1,10 @@
 /// <reference types="cypress" />
 
-const { loginPage} = require("../support/pages/login.page");
-const { homePage } = require("../support/pages/home.page");
-const { firstName, lastName, phoneNumber, email, password, confirmPassword } = require("../fixtures/example.json");
-const { profilePage } = require("../support/pages/profile.page");
-const { logoutPage } = require("../support/pages/logout.page")
+import { signupPage } from "../support/pages/signup.page";
+import { homePage } from "../support/pages/home.page";
+import { firstName, lastName, phoneNumber, email, password, confirmPassword } from "../fixtures/data.json";
+import { profilePage } from "../support/pages/profile.page";
+import { logoutPage } from "../support/pages/logout.page";
 
 describe('Teste de autenticação', () => {
 
@@ -16,7 +16,7 @@ describe('Teste de autenticação', () => {
   it('Deve criar uma conta com sucesso', () => {
     let email2 = `karina${Math.floor(Math.random() * 1000000000)}@ebac.com.br`
     homePage.openMenu()
-    loginPage.login(firstName, lastName, phoneNumber, email2, password, confirmPassword)
+    signupPage.signup(firstName, lastName, phoneNumber, email2, password, confirmPassword)
     profilePage.customerName().should('contain', 'Macedo Karina')
   })
 

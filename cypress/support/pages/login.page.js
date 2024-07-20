@@ -1,23 +1,20 @@
 /// <reference types="cypress" />
 
 export const loginPage = {
-    get firstName () {return cy.get('[data-testid="firstName"]')},
-    get lastName () {return cy.get('[data-testid="lastName"]')},
-    get phoneNumber () {return cy.get('[data-testid="phone"]')},
-    get email () {return cy.get(':nth-child(7) > .css-175oi2r > [data-testid="email"]')},
-    get password () {return cy.get(':nth-child(8) > .css-175oi2r > [data-testid="password"]')},
-    get confirmPassword() {return cy.get('[data-testid="repassword"]')},
-    get btnCreate () {return cy.get('[data-testid="create"]')},
-    get profile () {return cy.get('[href="/Tab/Account"] > .r-g6644c')},
+    get email () {return cy.get('[data-testid="email"]')},
+    get password () {return cy.get('[data-testid="password"]')},
+    get btnLogin () {return cy.get('[data-testid="btnLogin"]')},
+    get profile() {return cy.get('[href="/Tab/Account"]')},
+    get logOut () {return cy.get('.r-14lw9ot > :nth-child(5)')},
+    get confirm (){ return cy.get('[data-testid="confirm"]')},
 
-    login(firstName, lastName, phoneNumber, email, password, confirmPassword){
-        this.firstName.type(firstName)
-        this.lastName.type(lastName)
-        this.phoneNumber.type(phoneNumber)
+    login(email, password){
         this.email.type(email)
         this.password.type(password)
-        this.confirmPassword.type(confirmPassword)
-        this.btnCreate.click()
+        this.btnLogin.click()
         this.profile.click()
+        this.logOut.click()
+        this.confirm.click()
     }
+
 }
